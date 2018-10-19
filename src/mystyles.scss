@@ -64,7 +64,21 @@ $roboto : 'Roboto Mono', monospace;
         font-weight: bold;
         margin: 0;
         padding: 0;
-        color: black;
+        color: #080d15; //black;
+        // font-family: $roboto;
+      }
+    }
+    .hero2 {
+      position: absolute;
+      margin:0;
+      top:30%;
+      left:30%;
+      p {
+        font-size: 3em;    
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        color: #080d15; //black;
         // font-family: $roboto;
       }
     }
@@ -140,9 +154,6 @@ $roboto : 'Roboto Mono', monospace;
   }
 }
 
-.icon-wrapper {
-  // background-color: rgba(166,166,166,5);
-}
 
 .icons-col {
   display: flex;

@@ -10,6 +10,7 @@ import unsplash1 from './new_images/carolyn-v-546925-unsplash.jpg';
 import unsplash2 from './new_images/edwin-andrade-158050-unsplash.jpg';
 import unsplash3 from './new_images/haley-rivera-580013-unsplash.jpg';
 import unsplash4 from './new_images/aaron2.jpg';
+import unsplash5 from './new_images/hannah-busing-446337-unsplash.jpg';
 import two1 from './1280/book-1210030_1280.jpg';
 import iftwitter from './socials/twitter.png';
 import iffacebook from './socials/facebook.png';
@@ -30,6 +31,7 @@ export {
   unsplash2,
   unsplash3,
   unsplash4,
+  unsplash5,
   two1,
   iffacebook,
   iftwitter,

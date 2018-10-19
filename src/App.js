@@ -34,13 +34,29 @@ import {
 import ContactUs from './components/Contact/ContactForm';
 import Slideshow from './components/slideshow/Slideshow';
 import Intro from './components/Reveals/intro';
+import Donate from './components/Donate/Donate';
 
 const { Header, Content, Footer } = Layout;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      revealModal: false,
+    };
+    this.showModal = this.showModal.bind(this);
+  }
+
+  showModal() {
+    this.setState({
+      revealModal: true,
+    });
+  }
+
   render() {
     return (
       <div>
+        <Donate show={this.state.revealModal} />
         <Layout className="layout">
           <Header
             style={{
@@ -76,7 +92,7 @@ class App extends React.Component {
             className="head-carousel"
             effect="scroll"
             dots="false"
-            autoplaySpeed={15000}
+            autoplaySpeed={8000}
             // style={{height: 300}}
           >
             <div className="head-slide slide1">
@@ -225,9 +241,10 @@ class App extends React.Component {
                 </Col>
               </Row>
               <Row type="flex" justify="center" gutter={16}>
+              
                 <Col span={8}>
                  <Fade left>
-                  <Card className="donate-card shake-slow">
+                  <Card className="donate-card ">
                     <div className="gutter-box">
                       <h4>WORSHIP SERVICES</h4>
                       <Divider><FontAwesomeIcon icon="ribbon" style={{color: '#54CD38'}} /></Divider>
@@ -236,14 +253,14 @@ class App extends React.Component {
                        time of dedicating our tithes and offerings to God in prayer.
                        This is an opportunity to give to God during the service.
                       </p>
-                      <a href="#" style={{textDecoration: 'none'}}> <h6>GIVE NOW</h6> </a>
+                      <a href="https://www.paypal.me" target="_blank" style={{textDecoration: 'none'}}> <h6>GIVE NOW</h6> </a>
                     </div>
                   </Card>
                   </Fade>
                 </Col>
                 <Col span={8}>
                 <Fade right>
-                  <Card className="donate-card shake-slow">
+                  <Card className="donate-card">
                     <div className="gutter-box">
                       <h4>PARTNER WITH US</h4>
                       <Divider><FontAwesomeIcon icon="ribbon" style={{color: '#54CD38'}}/></Divider>
@@ -253,7 +270,7 @@ class App extends React.Component {
                        with the Prophet. Attend our seminars and classes
                        and get offers on ministry books.
                       </p>
-                      <a href="#" style={{textDecoration: 'none'}}><h6>PARTNER</h6></a>
+                      <a href="#" style={{textDecoration: 'none'}} onClick={this.showModal}><h6>PARTNER</h6></a>
                     </div>
                   </Card>
                   </Fade>

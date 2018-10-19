@@ -206,6 +206,13 @@ $roboto : 'Roboto Mono', monospace;
   }
 }
 
+.periscoper:hover {
+  img {
+    box-shadow: '0 0 2px 1px #40a9ff';
+  }
+}
+
+
 .location {
   text-align: left;
   h4 {
@@ -234,6 +241,7 @@ $roboto : 'Roboto Mono', monospace;
 
 .footer-text {
   font-family: $roboto;
+  margin-top: 10px;
 }
 
 .footer-icon {
@@ -243,3 +251,29 @@ $roboto : 'Roboto Mono', monospace;
   // height: 100px;
   font-size: 30px;
 }
+
+
+
+////////scrollbar/////
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0015298e// #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #001529// #555; 
+}
+
+//////************/////

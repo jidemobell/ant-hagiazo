@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as Scroll from 'react-scroll';
 import {
   Layout,
   Card,
@@ -38,6 +39,12 @@ import Donate from './components/Donate/Donate';
 
 const { Header, Content, Footer } = Layout;
 
+const Events = Scroll.Events;
+const scroll = Scroll.animateScroll;
+const scrollSpy  = Scroll.scrollSpy;
+const scroller = Scroll.scroller;
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -46,6 +53,32 @@ class App extends React.Component {
     };
     this.showModal = this.showModal.bind(this);
   }
+
+  componentDidMount() {
+    Events.scrollEvent.register('begin', (to, element) => {
+      // console.log("begin", arguments);
+    });
+ 
+    Events.scrollEvent.register('end', (to, element) => {
+     // console.log("end", arguments);
+    });
+ 
+    scrollSpy.update();
+ 
+  }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
+  // scrollToTop() {
+  //   scroll.scrollToTop();
+  // }
+
+  // scrollTo() {
+  //   scroll.scrollTo(900);
+  // }
 
   showModal() {
     this.setState({
@@ -74,13 +107,13 @@ class App extends React.Component {
               mode="horizontal"
               defaultSelectedKeys={['2']}
               style={{ lineHeight: '64px' }}
-              className="menu-navs"    
+              className="menu-navs"   
             >
-              <Menu.Item key="1">Home</Menu.Item>
-              <Menu.Item key="2">About</Menu.Item>
+              <Menu.Item key="1"><div onClick={() => scroll.scrollToTop()}>Home</div></Menu.Item>
+              <Menu.Item key="2"><div onClick={() => scroll.scrollTo(400)}>About</div></Menu.Item>
               <Menu.Item key="3">Ministries</Menu.Item>
-              <Menu.Item key="4">Donate</Menu.Item>
-              <Menu.Item key="5">Contact Us</Menu.Item>
+              <Menu.Item key="4"><div onClick={() => scroll.scrollTo(950)}>Give</div></Menu.Item>
+              <Menu.Item key="5"><div onClick={() => scroll.scrollTo(1520)}>Contact Us</div></Menu.Item>
               <Menu.Item key="6" style={{ float: 'right' }}><img src={iffacebook} className="header-image shake-slow" alt="facebook"/></Menu.Item>
               <Menu.Item key="7" style={{ float: 'right' }}><img src={iftwitter} className="header-image shake-slow" alt="twitter"/></Menu.Item>
 
@@ -285,12 +318,15 @@ class App extends React.Component {
                   <h1>Connect live with Prophet Hagiazo on Periscope</h1>
                 </Col>
                 <Col span={6} className="periscope-badge">
+                  <a href="https://www.pscp.tv/PaulHagiazo" target="_blank" style={{textDecoration: 'none'}}>
                   <Card
                     hoverable
                     style={{ width: 50, height: 50 }}
-                    cover={<img alt="example" src={periscope} />}
+                    className="periscoper"
+                    cover={<img alt="example" src={periscope}  />}
                   >
                   </Card>
+                  </a>
                 </Col>
               </Row>
             </div>
@@ -356,7 +392,7 @@ class App extends React.Component {
                </Row> */}
              </Content>
           </Footer>
-          <Footer style={{ textAlign: 'center', height: 70, background: '#000000', color: 'white' }}>
+          <Footer style={{ textAlign: 'center', height: '100%', background: '#000000', color: 'white' }} className="last-footer">
             <Row>
               <Col span={12} className="footer-text">
                 <p>© 2018 Paul Hagiazo. All Rights Reserved. jidemobell</p>

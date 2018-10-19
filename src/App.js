@@ -120,6 +120,7 @@ class App extends React.Component {
             </Menu>
             </div>
           </Header>
+          {/* <Slideshow /> */}
           <Carousel
             autoplay
             className="head-carousel"
@@ -143,9 +144,9 @@ class App extends React.Component {
             <div className="head-slde slide1">
              <img src={unsplash1} alt="unsplash1" style={{width: '100%', height: 450}} />
             </div>
-            <div className="head-slde slide1">
+            {/* <div className="head-slde slide1">
              <img src={unsplash3} alt="unpsplash2" style={{width: '100%', height: 450}} />
-            </div>
+            </div> */}
             <div className="head-slde slide1">
              <img src={unsplash4} alt="unpsplash2" style={{width: '100%', height: 450}} />
             </div>
